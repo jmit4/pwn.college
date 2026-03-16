@@ -2,74 +2,62 @@
 
 ## Introduction
 
-This repository contains my personal notes, solutions, and observations as I work through the pwn.college curriculum. The platform covers a wide range of topics from foundational Linux skills all the way to advanced exploitation techniques. These notes are meant to help me review concepts and track my progress.
+This repository contains my personal notes, solutions, and observations as I work through the cybersec curriculum. The platform covers a wide range of topics from foundational Linux skills all the way to advanced exploitation techniques. These notes are meant to help me review concepts and track my progress.
 
 ## Index
 
-- [Program Misuse](#program-misuse)
-- [Program Interaction](#program-interaction)
-- [Assembly Crash Course](#assembly-crash-course)
-- [Debugging Refresher](#debugging-refresher)
-- [Building a Web Server](#building-a-web-server)
-- [Reverse Engineering](#reverse-engineering)
-- [Memory Errors](#memory-errors)
-- [Shellcode Injection](#shellcode-injection)
-- [Cryptography](#cryptography)
-- [Web Security](#web-security)
-- [Sandboxing](#sandboxing)
-- [Kernel Security](#kernel-security)
-- [Fundamentals](#fundamentals)
+- [Assembly Foundations](#assembly)
 
 ---
 
-## Program Misuse
+## Assembly Foundations
 
-Notes on abusing the intended functionality of standard programs to read/write files or escalate privileges (SUID binaries, GTFOBins, etc.).
+Assembly is a language based on mnemonics that simplifies the programming process of computer code.
 
-## Program Interaction
+### List of registers
 
-Notes on interacting with programs via the command line, pipes, redirections, and sockets.
+| Register | Name               | Main Function / Purpose          | Volatility   |
+|:---------|:-------------------|:---------------------------------|:-------------|
+| **RAX** | Accumulator        | Returns, Syscall ID, Arithmetic  | Caller-saved |
+| **RBX** | Base               | Base pointer for data indexing   | Callee-saved |
+| **RCX** | Counter            | Loop counter, 4th Argument       | Caller-saved |
+| **RDX** | Data               | I/O, Multiply/Divide, 3rd Arg    | Caller-saved |
+| **RSI** | Source Index       | String source, 2nd Argument      | Caller-saved |
+| **RDI** | Destination Index  | String destination, 1st Argument | Caller-saved |
+| **RBP** | Base Pointer       | Stack frame base (Local vars)    | Callee-saved |
+| **RSP** | Stack Pointer      | Top of the stack                 | Callee-saved |
+| **R8** | General Purpose    | 5th Argument                     | Caller-saved |
+| **R9** | General Purpose    | 6th Argument                     | Caller-saved |
+| **R10** | General Purpose    | Temporary storage                | Caller-saved |
+| **R11** | General Purpose    | Temporary storage                | Caller-saved |
+| **R12** | General Purpose    | Long-term storage                | Callee-saved |
+| **R13** | General Purpose    | Long-term storage                | Callee-saved |
+| **R14** | General Purpose    | Long-term storage                | Callee-saved |
+| **R15** | General Purpose    | Long-term storage                | Callee-saved |
+| **RIP** | Instruction Ptr    | Next instruction address         | System       |
+| **RFLAGS**| Flags Register    | Status/Condition bits            | System       |
 
-## Assembly Crash Course
+### Register sizes
 
-Notes on x86-64 assembly, registers, instructions, and writing basic assembly programs.
+<img width="547" height="524" alt="image" src="https://github.com/user-attachments/assets/aa54357e-2a7a-482c-9f47-82bc84045a95" />
 
-## Debugging Refresher
 
-Notes on using debuggers (GDB, pwndbg) to inspect program state and step through execution.
+### Glossary
 
-## Building a Web Server
+**Pointer**: A pointer is a register that contains a memory address to a memory location.
 
-Notes on networking fundamentals, sockets, and building a basic HTTP server from scratch.
+**Stack**: The stack is a data structure of consecutive lines of bites (0 & 1 values) that lives in the computer's memory.
 
-## Reverse Engineering
+**Register**
 
-Notes on analyzing compiled binaries using tools like Ghidra, radare2, and objdump.
+**Memory**
 
-## Memory Errors
+**CPU**
 
-Notes on common memory safety vulnerabilities: buffer overflows, use-after-free, format string bugs, and more.
+**ALU**
 
-## Shellcode Injection
+**UC**
 
-Notes on writing and injecting shellcode to gain code execution.
+**Cache**
 
-## Cryptography
-
-Notes on common cryptographic primitives and vulnerabilities in their implementations.
-
-## Web Security
-
-Notes on web application vulnerabilities: XSS, SQL injection, CSRF, path traversal, and more.
-
-## Sandboxing
-
-Notes on seccomp, namespaces, and techniques for escaping sandboxed environments.
-
-## Kernel Security
-
-Notes on Linux kernel internals, kernel exploits, and privilege escalation techniques.
-
-## Fundamentals
-
-Notes on core Linux concepts: processes, file systems, permissions, signals, and system calls.
+****
